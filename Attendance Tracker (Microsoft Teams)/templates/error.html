@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Tracker</title>
+  <link rel="icon" href="../static/img/Vector.png" size="32">
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+</head>
+
+<body>
+  <nav class="navbar is-transparent is-spaced">
+    <div class="navbar-brand  ">
+      <a class="navbar-item">
+        <img src="../static/img/Vector.png" alt="Attendance Tracker" />
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+
+            <button class="button is-rounded is-primary" onclick="window.location = 'https://attendancesknhc.herokuapp.com/dropsession'"
+              type="submit">Log out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="notification">
+    <h1 class="title">Sorry but {{msg}}</h1>
+    <a href="/protected">
+        <button class="button is-rounded is-primary" type="submit">Go Back to Dashboard</button>
+
+      </a>
+  </div>
