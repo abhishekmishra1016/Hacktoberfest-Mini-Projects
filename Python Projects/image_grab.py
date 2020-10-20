@@ -13,7 +13,7 @@ while True:
         img = ImageGrab.grab()
 
         if img:
-            # change the path as per your machine
+            # change the path as per your machine in line 17 and 21
             if os.path.exists(r"C:\\Users\\91817\\PycharmProjects\\opencv\\images"):
                 x = random.randint(1,10000)
                 y = random.randint(2,100001)
