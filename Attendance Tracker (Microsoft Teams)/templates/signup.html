@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Tracker</title>
+  <link rel="icon" href="../static/img/Vector.png" size="32">
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+</head>
+
+<body >
+  <nav class="navbar is-transparent is-spaced">
+    <div class="navbar-brand  ">
+      <a class="navbar-item">
+        <img src="../static/img/Vector.png" alt="Attendance Tracker" />
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+
+              <button onclick="window.location='/'" id="login" class="button is-rounded is-primary">
+                Login
+              </button>
+
+
+            </p>
+            <form action="/signup" method="GET">
+              <p class="control">
+
+                <button class="button is-rounded  ">
+                  SignUp
+                </button>
+
+              </p>
+            </form>
+
+            </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns  is-centered">
+
+
+
+          <div class="column box is-8  ">
+            <h1 class="title is-2 has-text-centered">Sign Up to <span class="is-span">start tracking</span></h1>
+            <h3 class="title is-3 has-text-centered">Strictly for <span class="is-span">Professors</span></h3>
+            <form action="/mainlogin" method="POST">
+
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control ">
+                  <input class="input " name="Email" type="email" placeholder="Email" required>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Name <span class="is-span">(Please compulsory enter Microsoft Teams Username)</span></label>
+                <div class="control">
+                  <input class="input" name="Name" type="text" placeholder="Microsoft Teams Username" required>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control ">
+                  <input class="input" id="txtPassword" name="Password" type="password" placeholder="Password" value=""
+                    required>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Confirm Password</label>
+                <div class="control ">
+                  <input class="input" id="txtConfirmPassword" name="CPassword" type="Password"
+                    placeholder="Confirm Password" value="" required>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Secret ID</label>
+                <div class="control ">
+                  <input class="input" id="SecretID" name="SID" type="Password" placeholder="Secret ID" value=""
+                    required>
+                </div>
+              </div>
+              <br>
+
+              <h1 class="title is-3 ">Fill this <span class="is-span">Correctly</span></h1>
+              <br>
+              <div class="field  is-grouped has-text-left ">
+                
+                <div class="control">
+                  <label class="label">College</label>
+                  <div class="select">
+                    <select required name="College" id="myselect">
+                      <option required>none</option>
+                      <option required>SKNCOE</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="control">
+                  <label class="label">Department</label>
+                  <div class="select">
+                    <select required name="Department" id="myselect">
+                      <option required>none</option>
+                      <option required>IT</option>
+                      <!--<option required>COMP</option>
+                      <option required>MECH</option>
+                      <option required>ENTC</option>-->
+                    </select>
+                  </div>
+                </div>
+                <div class="control">
+                  <label class="label">Year</label>
+                  <div class="select">
+                    <select required name="Year" id="yearForSubject" >
+                      <option required>none</option>
+                      <option value="FE" required>FE</option>
+                      <option value="SE" required>SE</option>
+                      <option value="TE" required>TE</option>
+                      <option value="BE" required>BE</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="control">
+                  <label class="label">Subject</label>
+                  <div class="select">
+                    <select id="subject" name="Subject">
+                      <option required>none</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="control">
+                  <label class="label">Divison</label>
+                  <div class="select">
+                    <select required name="Div" id="myselect">
+                      <option required>none</option>
+                      <option required>DIV 1</option>
+                      <option required>DIV 2</option>
+                      <option required>DIV 1 & DIV 2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="field  is-grouped has-text-left ">
+                <div class="control">
+                  <label class="label">College</label>
+                  <div class="select">
+                    <select required name="College1" id="myselect">
+                      <option required>none</option>
+                      <option required>SKNCOE</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Department</label>
+                  <div class="select">
+                    <select required name="Department1" id="myselect">
+                      <option required>none</option>
+                      <option required>IT</option>
+                      <!--<option required>COMP</option>
+                      <option required>MECH</option>
+                      <option required>ENTC</option>-->
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Year</label>
+                  <div class="select">
+                    
+                    <select required name="Year1" id="yearForSubject1" >
+                      <option required>none</option>
+                      <option value="FE" required>FE</option>
+                      <option value="SE" required>SE</option>
+                      <option value="TE" required>TE</option>
+                      <option value="BE" required>BE</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Subject</label>
+                  <div class="select">
+                    <select id="subject1" name="Subject1">
+                        <!--IMPORTANT-->
+                        <option required>none</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Divison</label>
+                  <div class="select">
+                    <select required name="DivA" id="myselect">
+                      <option required>none</option>
+                      <option required>DIV 1</option>
+                      <option required>DIV 2</option>
+                      <option required>DIV 1 & DIV 2</option>
+                    </select>
+                  </div>
+                </div>
+    
+              </div>
+    
+              <div class="field  is-grouped has-text-left ">
+                <div class="control">
+                  <label class="label">College</label>
+                  <div class="select">
+                    <select required name="College2" id="myselect">
+                      <option required>none</option>
+                      <option required>SKNCOE</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Department</label>
+                  <div class="select">
+                    <select required name="Department2" id="myselect">
+                      <option required>none</option>
+                      <option required>IT</option>
+                      <!--<option required>COMP</option>
+                      <option required>MECH</option>
+                      <option required>ENTC</option>-->
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Year</label>
+                  <div class="select">
+                    
+                    <select required name="Year2" id="yearForSubject2" >
+                      <option required>none</option>
+                      <option value="FE" required>FE</option>
+                      <option value="SE" required>SE</option>
+                      <option value="TE" required>TE</option>
+                      <option value="BE" required>BE</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Subject</label>
+                  <div class="select">
+                    <select id="subject2" name="Subject2">
+                      <option required>none</option>
+                      <!--IMPORTANT-->
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Divison</label>
+                  <div class="select">
+                    <select required name="DivB" id="myselect">
+                      <option required>none</option>
+                      <option required>DIV 1</option>
+                      <option required>DIV 2</option>
+                      <option required>DIV 1 & DIV 2</option>
+                   
+                    </select>
+                  </div>
+                </div>
+    
+              </div>
+    
+              <div class="field  is-grouped has-text-left ">
+                <div class="control">
+                  <label class="label">College</label>
+                  <div class="select">
+                    <select required name="College3" id="myselect">
+                      <option required>none</option>
+                      <option required>SKNCOE</option>
+          
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Department</label>
+                  <div class="select">
+                    <select required name="Department3" id="myselect">
+                      <option required>none</option>
+                      <option required>IT</option>
+                      <!--<option required>COMP</option>
+                      <option required>MECH</option>
+                      <option required>ENTC</option>-->
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Year</label>
+                  <div class="select">
+                    
+                    <select required name="Year3" id="yearForSubject3" >
+                      <option required>none</option>
+                      <option value="FE" required>FE</option>
+                      <option value="SE" required>SE</option>
+                      <option value="TE" required>TE</option>
+                      <option value="BE" required>BE</option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Subject</label>
+                  <div class="select">
+                    <select id="subject3" name="Subject3">
+                      <option required>none</option>
+                      <!--IMPORTANT-->
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="control">
+                  <label class="label">Divison</label>
+                  <div class="select">
+                    <select required name="DivC" id="myselect">
+                      <option required>none</option>
+                      <option required>DIV 1</option>
+                      <option required>DIV 2</option>
+                      <option required>DIV 1 & DIV 2</option>
+                
+                    </select>
+                  </div>
+                </div>
+              
+              </div>
+              <br>
+              <div class="field is-grouped">
+                <div class="control">
+
+                  <button class="button is-rounded is-primary" id="btnSubmit">Submit</button>
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+    </div>
+    </div>
+  </section>
+
+
+
+
+
+  <footer class="footer is-dark">
+    <div class="content has-text-centered">
+      <h3 class="subtitle is-3 is-white-text">
+        Made with love from <strong> <a class="is-span" target="_blank" href="http://skn.hackclub.com"> Hack Club,
+            SKNCOE</a></strong>
+
+      </h3>
+      <div class="column">
+        <p class="title is-4 is-white-text">Join the Club</p>
+        <p class="subtitle is-4 mt-1">
+          <a href="https://twitter.com/hackclubskn" class="mx-2">
+            <i class=" is-span fab fa-twitter"></i>
+          </a>
+          <a class="mx-2">
+
+            <i class=" is-span fab fa-instagram">
+
+            </i>
+          </a>
+          <a href="https://www.linkedin.com/company/hack-club-skn" class="mx-2">
+            <i class=" is-span fab fa-linkedin-in"></i>
+          </a>
+          <a class="mx-2">
+            <i class=" is-span fab fa-github"></i>
+          </a>
+        </p>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/js/script.js"></script>
+</body>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(function () {
+  $("#btnSubmit").click(function () {
+    var SecretID1 ={{SecretID }};
+    var sid = $("#SecretID").val();
+    if (sid != SecretID1) {
+                alert("secret ID do not match.");
+                return false;
+            }
+            return true;
+  });
+});
+
+  $(function () {
+    $("#btnSubmit").click(function () {
+      var password = $("#txtPassword").val();
+      var confirmPassword = $("#txtConfirmPassword").val();
+
+      if (password != confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+      return true;
+    });
+  });
+
+
+$('#yearForSubject').on('change', function(){
+   console.log($('#yearForSubject').val());
+    $('#subject').html('');
+    if($('#yearForSubject').val()=="SE"){
+        $('#subject').append('<option required>DM</option>');
+        $('#subject').append('<option required>LDCO</option>');
+        $('#subject').append('<option required>DSA</option>');
+        $('#subject').append('<option required>OOP</option>');
+        $('#subject').append('<option required>BCN</option>');
+    }
+    else if($('#yearForSubject').val()=="FE"){
+        $('#subject').append('<option required>none</option>');
+        
+    }
+    else if($('#yearForSubject').val()=="TE"){
+        $('#subject').append('<option required>DBMS</option>');
+        $('#subject').append('<option required>OS</option>');
+        $('#subject').append('<option required>TOC</option>');
+        $('#subject').append('<option required>SEMP</option>');
+        $('#subject').append('<option required>HCI</option>');
+    }
+    else if($('#yearForSubject').val()=="BE"){
+        $('#subject').append('<option required>ICS</option>');
+        $('#subject').append('<option required>MLA</option>');
+        $('#subject').append('<option required>SDM</option>');
+        $('#subject').append('<option required>ELE-I (BAI)</option>');
+        $('#subject').append('<option required>ELE-II (STQA)</option>');
+    }
+    else{
+      $('#subject').append('<option required>none</option>');
+    }
+}); 
+
+
+  $('#yearForSubject1').on('change', function(){
+     console.log($('#yearForSubject1').val());
+      $('#subject1').html('');
+      if($('#yearForSubject1').val()=="SE"){
+          $('#subject1').append('<option required>DM</option>');
+          $('#subject1').append('<option required>LDCO</option>');
+          $('#subject1').append('<option required>DSA</option>');
+          $('#subject1').append('<option required>OOP</option>');
+          $('#subject1').append('<option required>BCN</option>');
+      }
+      else if($('#yearForSubject1').val()=="FE"){
+          $('#subject1').append('<option required>none</option>');
+          
+      }
+      else if($('#yearForSubject1').val()=="TE"){
+          $('#subject1').append('<option required>DBMS</option>');
+          $('#subject1').append('<option required>OS</option>');
+          $('#subject1').append('<option required>TOC</option>');
+          $('#subject1').append('<option required>SEMP</option>');
+          $('#subject1').append('<option required>HCI</option>');
+      }
+      else if($('#yearForSubject1').val()=="BE"){
+          $('#subject1').append('<option required>ICS</option>');
+          $('#subject1').append('<option required>MLA</option>');
+          $('#subject1').append('<option required>SDM</option>');
+          $('#subject1').append('<option required>ELE-I (BAI)</option>');
+          $('#subject1').append('<option required>ELE-II (STQA)</option>');
+      }
+      else{
+      $('#subject').append('<option required>none</option>');
+    }
+  }); 
+
+
+  $('#yearForSubject2').on('change', function(){
+     console.log($('#yearForSubject2').val());
+      $('#subject2').html('');
+      if($('#yearForSubject2').val()=="SE"){
+          $('#subject2').append('<option required>DM</option>');
+          $('#subject2').append('<option required>LDCO</option>');
+          $('#subject2').append('<option required>DSA</option>');
+          $('#subject2').append('<option required>OOP</option>');
+          $('#subject2').append('<option required>BCN</option>');
+      }
+      else if($('#yearForSubject2').val()=="FE"){
+          $('#subject2').append('<option required>none</option>');
+          
+      }
+      else if($('#yearForSubject2').val()=="TE"){
+          $('#subject2').append('<option required>DBMS</option>');
+          $('#subject2').append('<option required>OS</option>');
+          $('#subject2').append('<option required>TOC</option>');
+          $('#subject2').append('<option required>SEMP</option>');
+          $('#subject2').append('<option required>HCI</option>');
+      }
+      else if($('#yearForSubject2').val()=="BE"){
+          $('#subject2').append('<option required>ICS</option>');
+          $('#subject2').append('<option required>MLA</option>');
+          $('#subject2').append('<option required>SDM</option>');
+          $('#subject2').append('<option required>ELE-I (BAI)</option>');
+          $('#subject2').append('<option required>ELE-II (STQA)</option>');
+      }
+      else{
+      $('#subject').append('<option required>none</option>');
+    }
+  }); 
+
+
+  $('#yearForSubject3').on('change', function(){
+     console.log($('#yearForSubject3').val());
+      $('#subject3').html('');
+      if($('#yearForSubject3').val()=="SE"){
+          $('#subject3').append('<option required>DM</option>');
+          $('#subject3').append('<option required>LDCO</option>');
+          $('#subject3').append('<option required>DSA</option>');
+          $('#subject3').append('<option required>OOP</option>');
+          $('#subject3').append('<option required>BCN</option>');
+      }
+      else if($('#yearForSubject3').val()=="FE"){
+          $('#subject3').append('<option required>none</option>');
+          
+      }
+      else if($('#yearForSubject3').val()=="TE"){
+          $('#subject3').append('<option required>DBMS</option>');
+          $('#subject3').append('<option required>OS</option>');
+          $('#subject3').append('<option required>TOC</option>');
+          $('#subject3').append('<option required>SEMP</option>');
+          $('#subject3').append('<option required>HCI</option>');
+      }
+      else if($('#yearForSubject3').val()=="BE"){
+          $('#subject3').append('<option required>ICS</option>');
+          $('#subject3').append('<option required>MLA</option>');
+          $('#subject3').append('<option required>SDM</option>');
+          $('#subject3').append('<option required>ELE-I (BAI)</option>');
+          $('#subject3').append('<option required>ELE-II (STQA)</option>');
+      }
+      else{
+      $('#subject').append('<option required>none</option>');
+    }
+  }); 
+
+  function myFunc() {
+    return username + site
+  }
+</script>
+
+
+</html>
+
+

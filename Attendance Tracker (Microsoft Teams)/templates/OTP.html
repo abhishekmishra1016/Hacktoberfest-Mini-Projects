@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Tracker</title>
+  <link rel="icon" href="../static/img/Vector.png" size="32">
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+</head>
+
+<body>
+  <nav class="navbar is-transparent is-spaced">
+    <div class="navbar-brand  ">
+      <a class="navbar-item">
+        <img src="../static/img/Vector.png" alt="Attendance Tracker" />
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+
+              <button onclick="window.location='/'" id="login" class="button is-rounded is-primary">
+                Login
+              </button>
+
+
+            </p>
+            <form action="/signup" method="GET">
+              <p class="control">
+
+                <button class="button is-rounded  ">
+                  SignUp
+                </button>
+
+              </p>
+            </form>
+
+            </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+      <section>
+        <div class="columns is-mobile is-centered mt-6 pt-6">
+            <div class="column is-half">
+                <h1 class="title is-3 has-text-danger has-text-centered" ><!--Check your mail {{name}} || {{email}} || {{token}}--></h1>
+                        <form  action = "/updatepassword" method="POST">
+                          <h1 class="title is-3 has-text-danger has-text-centered">Professor, Check your mail {{Email}}, copy paste the OTP</h1>
+                            <div class="field">
+                              <label class="label">One Time Password</label>
+                              <div class="control ">
+                                  <input class="input" id="otp" name="OTP" type="password" placeholder="OTP" required>
+                              </div>
+                            </div>
+                            <div class="field">
+                              <label class="label">Password</label>
+                              <div class="control ">
+                                <input class="input" id="txtPassword" name="Password" type="password" placeholder="Password" value=""
+                                  required>
+                              </div>
+                            </div>
+                            <div class="field">
+                              <label class="label">Confirm Password</label>
+                              <div class="control ">
+                                <input class="input" id="txtConfirmPassword" name="CPassword" type="Password"
+                                  placeholder="Confirm Password" value="" required>
+                              </div>
+                            </div>
+                            <div class="field is-grouped">
+                                <div class="control">
+                                <button class="button is-link" id="btnSubmit" >Submit</button>
+                                </div>
+                            </div>
+                        </form>
+            </div>
+          </div>
+      </section>
+</body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+   $(function () {
+   $("#btnSubmit").click(function () {
+    var OTP1 = {{ OTP }};
+    var OTP2 = $("#otp").val();
+    if (OTP2 != OTP1) {
+                alert("secret ID do not match.");
+                return false;
+            }
+            return true;
+  });
+});
+ /*  $(function () {
+   $("#btnSubmit").click(function () {
+    var OTP1 = {{ OTP }};
+    var OTP2 = $("#otp").val();
+    if (OTP2 != OTP1) {
+                alert("secret ID do not match.");
+                return false;
+            }
+            return true;
+  });
+});*/
+</script>
+<script type="text/javascript">
+  $(function () {
+    $("#btnSubmit").click(function () {
+      var password = $("#txtPassword").val();
+      var confirmPassword = $("#txtConfirmPassword").val();
+
+      if (password != confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+      return true;
+    });
+  });
+</script>
+</html>
